@@ -30,7 +30,7 @@ namespace NXLogger.Console
             }
 
             var loginfo = GetLogInfo(level);
-            string message = $"{_dateTimeProvider.UtcNow} {loginfo.Item1} {logMessage}";
+            string message = GetMessage(loginfo.Item1, logMessage, _dateTimeProvider.UtcNow);
             _consoleWrapper.WriteLine(message, loginfo.Item2);
         }
     }

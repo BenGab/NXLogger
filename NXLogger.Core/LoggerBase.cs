@@ -23,5 +23,10 @@ namespace NXLogger.Core
 
             return _logInfos[logLevel];
         }
+
+        protected string GetMessage(string logInfo, string message, string time)
+        {
+            return $"{time} {logInfo} {message}";
+        }
     }
 }

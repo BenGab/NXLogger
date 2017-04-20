@@ -2,6 +2,6 @@
 {
     public interface IFileWriter
     {
-        void Write(string message);
+        void Write(string path, string message);
     }
 }

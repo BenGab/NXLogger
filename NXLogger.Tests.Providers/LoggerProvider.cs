@@ -1,0 +1,24 @@
+﻿using System;
+using System.Linq;
+
+namespace NXLogger.Tests.Providers
+{
+
+    public enum MessageLength
+    {
+        Small = 50,
+        Normal = 80,
+        Large = 120,
+        ExtraLarge = 1001
+    }
+
+    public static class LoggerProvider
+    {
+        private static Random rnd = new Random();
+        public static string CreateLogMessage(MessageLength length)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, (int)length).Select(s => s[rnd.Next(chars.Length)]).ToArray());
+        }
+    }
+}

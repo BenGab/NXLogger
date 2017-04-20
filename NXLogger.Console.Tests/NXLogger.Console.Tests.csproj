@@ -14,6 +14,8 @@
   <ItemGroup>
     <ProjectReference Include="..\NXLogger.Console\NXLogger.Console.csproj" />
     <ProjectReference Include="..\NXLogger.Contracts\NXLogger.Contracts.csproj" />
+    <ProjectReference Include="..\NXLogger.Core\NXLogger.Core.csproj" />
+    <ProjectReference Include="..\NXLogger.Tests.Providers\NXLogger.Tests.Providers.csproj" />
   </ItemGroup>
 
   <ItemGroup>

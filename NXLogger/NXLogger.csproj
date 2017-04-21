@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NXLogger.Console\NXLogger.Console.csproj" />
+    <ProjectReference Include="..\NXLogger.Contracts\NXLogger.Contracts.csproj" />
+    <ProjectReference Include="..\NXLogger.Core\NXLogger.Core.csproj" />
+    <ProjectReference Include="..\NXLogger.FileLog\NXLogger.FileLog.csproj" />
+    <ProjectReference Include="..\NXLogger.StreamLog\NXLogger.StreamLog.csproj" />
+  </ItemGroup>
+
+</Project>

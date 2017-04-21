@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NXLogger.StreamLog", "NXLog
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NXLogger.StreamLog.Tests", "NXLogger.StreamLog.Tests\NXLogger.StreamLog.Tests.csproj", "{5632290B-6453-4835-8D82-BAE0849EBC11}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NXLogger", "NXLogger\NXLogger.csproj", "{729C4E72-6E63-4B76-B20E-443C4C66AECA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{5632290B-6453-4835-8D82-BAE0849EBC11}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5632290B-6453-4835-8D82-BAE0849EBC11}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5632290B-6453-4835-8D82-BAE0849EBC11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{729C4E72-6E63-4B76-B20E-443C4C66AECA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{729C4E72-6E63-4B76-B20E-443C4C66AECA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{729C4E72-6E63-4B76-B20E-443C4C66AECA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{729C4E72-6E63-4B76-B20E-443C4C66AECA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

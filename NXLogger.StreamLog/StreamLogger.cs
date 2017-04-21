@@ -1,5 +1,4 @@
-﻿using System;
-using NXLogger.Contracts;
+﻿using NXLogger.Contracts;
 using NXLogger.Contracts.Levels;
 using NXLogger.Core;
 using NXLogger.Core.Providers;

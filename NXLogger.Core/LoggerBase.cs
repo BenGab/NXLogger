@@ -1,5 +1,6 @@
 ﻿using NXLogger.Contracts.Exceptions;
 using NXLogger.Contracts.Levels;
+using NXLogger.Core.Providers;
 using System;
 using System.Collections.Generic;
 
@@ -13,6 +14,13 @@ namespace NXLogger.Core
             {LogLevel.Info, new Tuple<string, ConsoleColor>("[INFO]", ConsoleColor.Green) },
             {LogLevel.Error, new Tuple<string, ConsoleColor>("[ERROR]", ConsoleColor.Red) }
         };
+
+        protected readonly IDateTimeProvider _dateTimeProvider;
+
+        public LoggerBase(IDateTimeProvider dateTimeProvider)
+        {
+            _dateTimeProvider = dateTimeProvider;
+        }
 
         protected Tuple<string, ConsoleColor> GetLogInfo(LogLevel logLevel)
         {

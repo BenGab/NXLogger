@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NXLogger.FileLog", "NXLogge
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NXLogger.FileLog.Tests", "NXLogger.FileLog.Tests\NXLogger.FileLog.Tests.csproj", "{E0C894DA-2C0F-4F75-B225-ED2FBE1A4CE2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NXLogger.StreamLog", "NXLogger.StreamLog\NXLogger.StreamLog.csproj", "{FE619238-F411-47F7-9241-169571F463D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NXLogger.StreamLog.Tests", "NXLogger.StreamLog.Tests\NXLogger.StreamLog.Tests.csproj", "{5632290B-6453-4835-8D82-BAE0849EBC11}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{E0C894DA-2C0F-4F75-B225-ED2FBE1A4CE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0C894DA-2C0F-4F75-B225-ED2FBE1A4CE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0C894DA-2C0F-4F75-B225-ED2FBE1A4CE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE619238-F411-47F7-9241-169571F463D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE619238-F411-47F7-9241-169571F463D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE619238-F411-47F7-9241-169571F463D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE619238-F411-47F7-9241-169571F463D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5632290B-6453-4835-8D82-BAE0849EBC11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5632290B-6453-4835-8D82-BAE0849EBC11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5632290B-6453-4835-8D82-BAE0849EBC11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5632290B-6453-4835-8D82-BAE0849EBC11}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

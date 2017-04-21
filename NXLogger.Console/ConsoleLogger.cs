@@ -14,17 +14,16 @@ namespace NXLogger.Console
     {
         private const int MaxMessageLength = 1000;
         private readonly IConsoleWrapper _consoleWrapper;
-        private readonly IDateTimeProvider _dateTimeProvider;
 
         public ConsoleLogger(IConsoleWrapper consoleWrapper, IDateTimeProvider dateTimeProvider)
+            : base(dateTimeProvider)
         {
             _consoleWrapper = consoleWrapper;
-            _dateTimeProvider = dateTimeProvider;
         }
 
         public void Log(LogLevel level, string logMessage)
         {
-            if(logMessage.Length > MaxMessageLength)
+            if (logMessage.Length > MaxMessageLength)
             {
                 throw new LogMessageToLongException();
             }

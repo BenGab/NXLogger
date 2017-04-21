@@ -8,13 +8,12 @@ namespace NXLogger.FileLog
 {
     public sealed class FileLogger : LoggerBase, ILogger
     {
-        private readonly IDateTimeProvider _dateTimeProvider;
         private readonly IFilePathProvider _filePathProvider;
         private readonly IFileWriter _fileWriter;
 
-        public FileLogger(IDateTimeProvider dateTimeProvider, IFilePathProvider filePathProvider, IFileWriter fileWriter) 
+        public FileLogger(IDateTimeProvider dateTimeProvider, IFilePathProvider filePathProvider, IFileWriter fileWriter)
+            : base(dateTimeProvider)
         {
-            _dateTimeProvider = dateTimeProvider;
             _filePathProvider = filePathProvider;
             _fileWriter = fileWriter;
         }

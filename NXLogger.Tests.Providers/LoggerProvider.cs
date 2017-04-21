@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 
 namespace NXLogger.Tests.Providers
@@ -19,6 +20,14 @@ namespace NXLogger.Tests.Providers
         {
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
             return new string(Enumerable.Repeat(chars, (int)length).Select(s => s[rnd.Next(chars.Length)]).ToArray());
+        }
+
+        public static string GetStreamContent(Stream content)
+        {
+            using (StreamReader rdr = new StreamReader(content))
+            {
+                return rdr.ReadToEnd();
+            }
         }
     }
 }

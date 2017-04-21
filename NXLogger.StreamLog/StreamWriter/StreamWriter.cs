@@ -10,8 +10,6 @@ namespace NXLogger.StreamLog.StreamWriter
         {
             var bytes = Encoding.UTF8.GetBytes(message);
             stream.Write(bytes, 0, bytes.Length);
-            stream.Flush();
-            stream.Seek(0, SeekOrigin.Begin);
         }
     }
 }

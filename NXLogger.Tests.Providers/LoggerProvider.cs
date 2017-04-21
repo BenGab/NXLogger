@@ -24,6 +24,8 @@ namespace NXLogger.Tests.Providers
 
         public static string GetStreamContent(Stream content)
         {
+            content.Flush();
+            content.Seek(0, SeekOrigin.Begin);
             using (StreamReader rdr = new StreamReader(content))
             {
                 return rdr.ReadToEnd();

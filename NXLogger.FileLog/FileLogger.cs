@@ -30,7 +30,10 @@ namespace NXLogger.FileLog
 
         public Task LogAsync(LogLevel level, string logMessage)
         {
-            throw new NotImplementedException();
+            string path = _filePathProvider.GetFilePath();
+            var logInfo = GetLogInfo(level);
+            string message = GetMessage(logInfo.Item1, logMessage, _dateTimeProvider.UtcNow);
+            return _fileWriter.WriteAsync(path, message);
         }
     }
 }

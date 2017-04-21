@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace NXLogger.FileLog.FileWriter
 {
@@ -14,6 +15,11 @@ namespace NXLogger.FileLog.FileWriter
         public void Write(string path, string message)
         {
             _fileWriterWrapper.Write(path, message);
+        }
+
+        public Task WriteAsync(string path, string message)
+        {
+            return _fileWriterWrapper.WriteAsync(path, message);
         }
     }
 }

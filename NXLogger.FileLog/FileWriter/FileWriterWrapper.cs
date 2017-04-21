@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace NXLogger.FileLog.FileWriter
 {
@@ -14,6 +15,19 @@ namespace NXLogger.FileLog.FileWriter
                 {
                     writer.WriteLine(content + message);
                     writer.Flush();
+                }
+            }
+        }
+
+        public async Task WriteAsync(string filePath, string message)
+        {
+            var content = GetFileContent(filePath);
+            using (FileStream fs = new FileStream(filePath, FileMode.OpenOrCreate, FileAccess.Write))
+            {
+                using (StreamWriter writer = new StreamWriter(fs))
+                {
+                    await writer.WriteLineAsync(content + message).ConfigureAwait(false);
+                    await writer.FlushAsync().ConfigureAwait(false);
                 }
             }
         }

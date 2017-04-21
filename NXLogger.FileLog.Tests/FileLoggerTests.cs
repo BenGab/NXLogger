@@ -6,6 +6,7 @@ using NXLogger.Core.Providers;
 using NXLogger.FileLog.FileWriter;
 using NXLogger.Tests.Providers;
 using System;
+using System.Threading.Tasks;
 
 namespace NXLogger.FileLog.Tests
 {
@@ -54,6 +55,34 @@ namespace NXLogger.FileLog.Tests
             string expectedMessage = $"{_dateTimeProviderMock.UtcNow} [ERROR] {message}";
             _fileLogger.Log(LogLevel.Error, message);
             _filewriterMock.Received().Write(Arg.Is(expectedFilePath), Arg.Is(expectedMessage));
+        }
+
+        //Async
+        [TestMethod]
+        public async Task Async_Debug_Log_Call_Shoould_Write_File_Expected_Message__And_Path()
+        {
+            string message = LoggerProvider.CreateLogMessage(MessageLength.Normal);
+            string expectedMessage = $"{_dateTimeProviderMock.UtcNow} [DEBUG] {message}";
+            await _fileLogger.LogAsync(LogLevel.Debug, message);
+            await _filewriterMock.Received().WriteAsync(Arg.Is(expectedFilePath), Arg.Is(expectedMessage));
+        }
+
+        [TestMethod]
+        public async Task Async_Info_Log_Call_Shoould_Write_File_Expected_Message__And_Path()
+        {
+            string message = LoggerProvider.CreateLogMessage(MessageLength.Normal);
+            string expectedMessage = $"{_dateTimeProviderMock.UtcNow} [INFO] {message}";
+            await _fileLogger.LogAsync(LogLevel.Info, message);
+            await _filewriterMock.Received().WriteAsync(Arg.Is(expectedFilePath), Arg.Is(expectedMessage));
+        }
+
+        [TestMethod]
+        public async Task Async_Error_Log_Call_Shoould_Write_File_Expected_Message__And_Path()
+        {
+            string message = LoggerProvider.CreateLogMessage(MessageLength.Normal);
+            string expectedMessage = $"{_dateTimeProviderMock.UtcNow} [ERROR] {message}";
+            await _fileLogger.LogAsync(LogLevel.Error, message);
+            await _filewriterMock.Received().WriteAsync(Arg.Is(expectedFilePath), Arg.Is(expectedMessage));
         }
     }
 }

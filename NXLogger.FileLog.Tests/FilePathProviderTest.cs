@@ -9,7 +9,7 @@ namespace NXLogger.FileLog.Tests
     {
         private IFilePathProvider _filepathProvider;
         private IFileInfo _fileInfoMock;
-        private const string expectedFilePath = @"C:\Logs\log.txt";
+        private const string expectedFilePath = @"C:\log.txt";
 
         [TestInitialize]
         public void TestInititalize()
@@ -31,7 +31,7 @@ namespace NXLogger.FileLog.Tests
         {
             _fileInfoMock.GetSize(Arg.Is(expectedFilePath)).Returns(5120);
             var path = _filepathProvider.GetFilePath();
-            var expectedPath = @"C:\Logs\log.1.txt";
+            var expectedPath = @"C:\log.1.txt";
             Assert.AreEqual(path, expectedPath);
         }
     }

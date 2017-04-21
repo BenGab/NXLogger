@@ -8,7 +8,7 @@ namespace NXLogger.FileLog.FileWriter
         /// <summary>
         /// Dummy Implementation. On live enviroment shuld get this path from config file or other area
         /// </summary>
-        private const string path = @"C:\Logs\log.txt";
+        private const string path = @"C:\log.txt";
         private const long maxFileSize = 5120;
         private readonly IFileInfo _fileInfo;
 

@@ -1,4 +1,6 @@
-﻿using NXLogger.Contracts;
+﻿using System;
+using System.Threading.Tasks;
+using NXLogger.Contracts;
 using NXLogger.Contracts.Levels;
 using NXLogger.Core;
 using NXLogger.Core.Providers;
@@ -24,6 +26,11 @@ namespace NXLogger.FileLog
             var logInfo = GetLogInfo(level);
             string message = GetMessage(logInfo.Item1, logMessage, _dateTimeProvider.UtcNow);
             _fileWriter.Write(path, message);
+        }
+
+        public Task LogAsync(LogLevel level, string logMessage)
+        {
+            throw new NotImplementedException();
         }
     }
 }

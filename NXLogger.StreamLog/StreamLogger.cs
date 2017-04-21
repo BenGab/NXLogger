@@ -4,6 +4,8 @@ using NXLogger.Core;
 using NXLogger.Core.Providers;
 using System.IO;
 using NXLogger.StreamLog.StreamWriter;
+using System;
+using System.Threading.Tasks;
 
 namespace NXLogger.StreamLog
 {
@@ -24,6 +26,11 @@ namespace NXLogger.StreamLog
             var logInfo = GetLogInfo(level);
             string message = GetMessage(logInfo.Item1, logMessage, _dateTimeProvider.UtcNow);
             _streamWriter.Writeline(_stream, message);
+        }
+
+        public Task LogAsync(LogLevel level, string logMessage)
+        {
+            throw new NotImplementedException();
         }
     }
 }

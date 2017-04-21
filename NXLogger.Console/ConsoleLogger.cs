@@ -7,6 +7,7 @@ using NXLogger.Contracts.Exceptions;
 using NXLogger.Contracts;
 using NXLogger.Core.Providers;
 using NXLogger.Core;
+using System.Threading.Tasks;
 
 namespace NXLogger.Console
 {
@@ -31,6 +32,11 @@ namespace NXLogger.Console
             var loginfo = GetLogInfo(level);
             string message = GetMessage(loginfo.Item1, logMessage, _dateTimeProvider.UtcNow);
             _consoleWrapper.WriteLine(message, loginfo.Item2);
+        }
+
+        public async Task LogAsync(LogLevel level, string logMessage)
+        {
+            await Task.Run(() => Log(level, logMessage));
         }
     }
 }

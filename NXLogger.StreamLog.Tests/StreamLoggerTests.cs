@@ -6,6 +6,7 @@ using NXLogger.StreamLog.StreamWriter;
 using NXLogger.Tests.Providers;
 using System;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace NXLogger.StreamLog.Tests
 {
@@ -62,6 +63,33 @@ namespace NXLogger.StreamLog.Tests
                 var streamLogger = new StreamLogger(stream, _dateTimeProviderMock, _streamWriterMock);
                 streamLogger.Log(LogLevel.Error, message);
                 _streamWriterMock.Received().Writeline(Arg.Any<Stream>(), Arg.Is(expectedMessage));
+            }
+        }
+
+        //Async
+        [TestMethod]
+        public async Task Async_Info_Log_Call_Shoould_Write_File_Expected_Message__And_Path()
+        {
+            string message = LoggerProvider.CreateLogMessage(MessageLength.Normal);
+            string expectedMessage = $"{_dateTimeProviderMock.UtcNow} [INFO] {message}";
+            using (var stream = _streamFactoryMock.Create())
+            {
+                var streamLogger = new StreamLogger(stream, _dateTimeProviderMock, _streamWriterMock);
+                await streamLogger.LogAsync(LogLevel.Info, message);
+                await _streamWriterMock.Received().WriteLineAsync(Arg.Any<Stream>(), Arg.Is(expectedMessage));
+            }
+        }
+
+        [TestMethod]
+        public async Task Async_Error_Log_Call_Shoould_Write_File_Expected_Message__And_Path()
+        {
+            string message = LoggerProvider.CreateLogMessage(MessageLength.Normal);
+            string expectedMessage = $"{_dateTimeProviderMock.UtcNow} [ERROR] {message}";
+            using (var stream = _streamFactoryMock.Create())
+            {
+                var streamLogger = new StreamLogger(stream, _dateTimeProviderMock, _streamWriterMock);
+                await streamLogger.LogAsync(LogLevel.Error, message);
+                await _streamWriterMock.Received().WriteLineAsync(Arg.Any<Stream>(), Arg.Is(expectedMessage));
             }
         }
     }

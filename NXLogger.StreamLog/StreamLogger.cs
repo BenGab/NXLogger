@@ -30,7 +30,9 @@ namespace NXLogger.StreamLog
 
         public Task LogAsync(LogLevel level, string logMessage)
         {
-            throw new NotImplementedException();
+            var logInfo = GetLogInfo(level);
+            string message = GetMessage(logInfo.Item1, logMessage, _dateTimeProvider.UtcNow);
+            return _streamWriter.WriteLineAsync(_stream, message);
         }
     }
 }
